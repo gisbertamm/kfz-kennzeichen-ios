@@ -13,6 +13,7 @@
 		01DA10431B56757F000A695F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DA10421B56757F000A695F /* Images.xcassets */; };
 		01DA10461B56757F000A695F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DA10441B56757F000A695F /* LaunchScreen.xib */; };
 		01DA10521B56757F000A695F /* Kfz_KennzeichenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */; };
+		01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105B1B568EA4000A695F /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		01DA104B1B56757F000A695F /* Kfz-KennzeichenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kfz-KennzeichenTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DA10501B56757F000A695F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kfz_KennzeichenTests.swift; sourceTree = "<group>"; };
+		01DA105B1B568EA4000A695F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				01DA10421B56757F000A695F /* Images.xcassets */,
 				01DA10441B56757F000A695F /* LaunchScreen.xib */,
 				01DA10391B56757F000A695F /* Supporting Files */,
+				01DA105B1B568EA4000A695F /* DetailViewController.swift */,
 			);
 			path = "Kfz-Kennzeichen";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */,
 				01DA103E1B56757F000A695F /* ViewController.swift in Sources */,
 				01DA103C1B56757F000A695F /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +409,7 @@
 				01DA10571B56757F000A695F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01DA10581B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-KennzeichenTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				01DA105A1B56757F000A695F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
