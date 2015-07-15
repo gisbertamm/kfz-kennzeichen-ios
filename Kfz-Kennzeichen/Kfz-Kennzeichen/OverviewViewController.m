@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Gisbert Amm. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "OverviewViewController.h"
 
-@interface ViewController ()
+@interface OverviewViewController ()
 
 @end
 
-@implementation ViewController
+@implementation OverviewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

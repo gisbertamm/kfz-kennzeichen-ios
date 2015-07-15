@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DetailViewController.h
 //  Kfz-Kennzeichen
 //
 //  Created by Gisbert Amm on 15.07.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DetailViewController : UIViewController
 
 @end
-
