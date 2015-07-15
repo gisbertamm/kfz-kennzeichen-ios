@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01DA103C1B56757F000A695F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA103B1B56757F000A695F /* AppDelegate.swift */; };
+		01DA103E1B56757F000A695F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA103D1B56757F000A695F /* ViewController.swift */; };
+		01DA10411B56757F000A695F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DA103F1B56757F000A695F /* Main.storyboard */; };
+		01DA10431B56757F000A695F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DA10421B56757F000A695F /* Images.xcassets */; };
+		01DA10461B56757F000A695F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DA10441B56757F000A695F /* LaunchScreen.xib */; };
+		01DA10521B56757F000A695F /* Kfz_KennzeichenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01DA104C1B56757F000A695F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01DA102E1B56757F000A695F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01DA10351B56757F000A695F;
+			remoteInfo = "Kfz-Kennzeichen";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01DA10361B56757F000A695F /* Kfz-Kennzeichen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kfz-Kennzeichen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01DA103A1B56757F000A695F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01DA103B1B56757F000A695F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		01DA103D1B56757F000A695F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01DA10401B56757F000A695F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01DA10421B56757F000A695F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		01DA10451B56757F000A695F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		01DA104B1B56757F000A695F /* Kfz-KennzeichenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kfz-KennzeichenTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01DA10501B56757F000A695F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kfz_KennzeichenTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01DA10331B56757F000A695F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01DA10481B56757F000A695F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01DA102D1B56757F000A695F = {
+			isa = PBXGroup;
+			children = (
+				01DA10381B56757F000A695F /* Kfz-Kennzeichen */,
+				01DA104E1B56757F000A695F /* Kfz-KennzeichenTests */,
+				01DA10371B56757F000A695F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01DA10371B56757F000A695F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01DA10361B56757F000A695F /* Kfz-Kennzeichen.app */,
+				01DA104B1B56757F000A695F /* Kfz-KennzeichenTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01DA10381B56757F000A695F /* Kfz-Kennzeichen */ = {
+			isa = PBXGroup;
+			children = (
+				01DA103B1B56757F000A695F /* AppDelegate.swift */,
+				01DA103D1B56757F000A695F /* ViewController.swift */,
+				01DA103F1B56757F000A695F /* Main.storyboard */,
+				01DA10421B56757F000A695F /* Images.xcassets */,
+				01DA10441B56757F000A695F /* LaunchScreen.xib */,
+				01DA10391B56757F000A695F /* Supporting Files */,
+			);
+			path = "Kfz-Kennzeichen";
+			sourceTree = "<group>";
+		};
+		01DA10391B56757F000A695F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01DA103A1B56757F000A695F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01DA104E1B56757F000A695F /* Kfz-KennzeichenTests */ = {
+			isa = PBXGroup;
+			children = (
+				01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */,
+				01DA104F1B56757F000A695F /* Supporting Files */,
+			);
+			path = "Kfz-KennzeichenTests";
+			sourceTree = "<group>";
+		};
+		01DA104F1B56757F000A695F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01DA10501B56757F000A695F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01DA10351B56757F000A695F /* Kfz-Kennzeichen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01DA10551B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-Kennzeichen" */;
+			buildPhases = (
+				01DA10321B56757F000A695F /* Sources */,
+				01DA10331B56757F000A695F /* Frameworks */,
+				01DA10341B56757F000A695F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kfz-Kennzeichen";
+			productName = "Kfz-Kennzeichen";
+			productReference = 01DA10361B56757F000A695F /* Kfz-Kennzeichen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01DA104A1B56757F000A695F /* Kfz-KennzeichenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01DA10581B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-KennzeichenTests" */;
+			buildPhases = (
+				01DA10471B56757F000A695F /* Sources */,
+				01DA10481B56757F000A695F /* Frameworks */,
+				01DA10491B56757F000A695F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01DA104D1B56757F000A695F /* PBXTargetDependency */,
+			);
+			name = "Kfz-KennzeichenTests";
+			productName = "Kfz-KennzeichenTests";
+			productReference = 01DA104B1B56757F000A695F /* Kfz-KennzeichenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01DA102E1B56757F000A695F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Gisbert Amm";
+				TargetAttributes = {
+					01DA10351B56757F000A695F = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					01DA104A1B56757F000A695F = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 01DA10351B56757F000A695F;
+					};
+				};
+			};
+			buildConfigurationList = 01DA10311B56757F000A695F /* Build configuration list for PBXProject "Kfz-Kennzeichen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01DA102D1B56757F000A695F;
+			productRefGroup = 01DA10371B56757F000A695F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01DA10351B56757F000A695F /* Kfz-Kennzeichen */,
+				01DA104A1B56757F000A695F /* Kfz-KennzeichenTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01DA10341B56757F000A695F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01DA10411B56757F000A695F /* Main.storyboard in Resources */,
+				01DA10461B56757F000A695F /* LaunchScreen.xib in Resources */,
+				01DA10431B56757F000A695F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01DA10491B56757F000A695F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01DA10321B56757F000A695F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01DA103E1B56757F000A695F /* ViewController.swift in Sources */,
+				01DA103C1B56757F000A695F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01DA10471B56757F000A695F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01DA10521B56757F000A695F /* Kfz_KennzeichenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01DA104D1B56757F000A695F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01DA10351B56757F000A695F /* Kfz-Kennzeichen */;
+			targetProxy = 01DA104C1B56757F000A695F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		01DA103F1B56757F000A695F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01DA10401B56757F000A695F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01DA10441B56757F000A695F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01DA10451B56757F000A695F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01DA10531B56757F000A695F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		01DA10541B56757F000A695F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01DA10561B56757F000A695F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Kfz-Kennzeichen/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01DA10571B56757F000A695F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Kfz-Kennzeichen/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		01DA10591B56757F000A695F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Kfz-KennzeichenTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kfz-Kennzeichen.app/Kfz-Kennzeichen";
+			};
+			name = Debug;
+		};
+		01DA105A1B56757F000A695F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Kfz-KennzeichenTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kfz-Kennzeichen.app/Kfz-Kennzeichen";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01DA10311B56757F000A695F /* Build configuration list for PBXProject "Kfz-Kennzeichen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01DA10531B56757F000A695F /* Debug */,
+				01DA10541B56757F000A695F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01DA10551B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-Kennzeichen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01DA10561B56757F000A695F /* Debug */,
+				01DA10571B56757F000A695F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		01DA10581B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-KennzeichenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01DA10591B56757F000A695F /* Debug */,
+				01DA105A1B56757F000A695F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01DA102E1B56757F000A695F /* Project object */;
+}

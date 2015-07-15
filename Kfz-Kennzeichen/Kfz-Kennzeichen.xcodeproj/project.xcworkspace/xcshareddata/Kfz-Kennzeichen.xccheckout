@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6D05DB1C-C594-4A74-9D6E-10AB954A0DA5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Kfz-Kennzeichen</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DD2371CD8A6B90F2769261C7C4EC7FEE044308CA</key>
+		<string>https://github.com/gisbertamm/kfz-kennzeichen-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Kfz-Kennzeichen/Kfz-Kennzeichen.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DD2371CD8A6B90F2769261C7C4EC7FEE044308CA</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gisbertamm/kfz-kennzeichen-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DD2371CD8A6B90F2769261C7C4EC7FEE044308CA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD2371CD8A6B90F2769261C7C4EC7FEE044308CA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>kfz-kennzeichen-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>
