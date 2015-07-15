@@ -14,6 +14,7 @@
 		01DA10461B56757F000A695F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DA10441B56757F000A695F /* LaunchScreen.xib */; };
 		01DA10521B56757F000A695F /* Kfz_KennzeichenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */; };
 		01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105B1B568EA4000A695F /* DetailViewController.swift */; };
+		01DA105E1B56A076000A695F /* SavedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105D1B56A076000A695F /* SavedEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		01DA10501B56757F000A695F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kfz_KennzeichenTests.swift; sourceTree = "<group>"; };
 		01DA105B1B568EA4000A695F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		01DA105D1B56A076000A695F /* SavedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				01DA10441B56757F000A695F /* LaunchScreen.xib */,
 				01DA10391B56757F000A695F /* Supporting Files */,
 				01DA105B1B568EA4000A695F /* DetailViewController.swift */,
+				01DA105D1B56A076000A695F /* SavedEntry.swift */,
 			);
 			path = "Kfz-Kennzeichen";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DA105E1B56A076000A695F /* SavedEntry.swift in Sources */,
 				01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */,
 				01DA103E1B56757F000A695F /* ViewController.swift in Sources */,
 				01DA103C1B56757F000A695F /* AppDelegate.swift in Sources */,

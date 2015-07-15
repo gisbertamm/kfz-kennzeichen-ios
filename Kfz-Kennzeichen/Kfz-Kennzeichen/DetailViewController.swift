@@ -12,10 +12,10 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
-    var receivedString: String
+    var savedEntry: SavedEntry?
     
     required init(coder aDecoder: NSCoder) {
-        receivedString = ""
+        savedEntry = nil
         super.init(coder: aDecoder)
     }
     
@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        label.text = receivedString
+        label.text = savedEntry?.code
     }
 
     override func didReceiveMemoryWarning() {

@@ -32,15 +32,19 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
+        let savedEntry = SavedEntry()
+
         if (segue!.identifier! == "showDetail") {
-            detailViewControler.receivedString = "Search"
+            savedEntry.code = "Search"
         }
         else if (segue!.identifier! == "showRandomDetail") {
-            detailViewControler.receivedString = "Random"
+            savedEntry.code = "Random"
         } else {
-            detailViewControler.receivedString = "unknown segue"
+            savedEntry.code = "unknown segue"
         }
+        
+        var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
+        detailViewControler.savedEntry = savedEntry
     }
 }
 
