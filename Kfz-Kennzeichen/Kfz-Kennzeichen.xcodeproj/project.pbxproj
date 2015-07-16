@@ -15,6 +15,7 @@
 		01DA10521B56757F000A695F /* Kfz_KennzeichenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */; };
 		01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105B1B568EA4000A695F /* DetailViewController.swift */; };
 		01DA105E1B56A076000A695F /* SavedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105D1B56A076000A695F /* SavedEntry.swift */; };
+		01DA10601B57D7B0000A695F /* NumberplateCodesManager.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		01DA10511B56757F000A695F /* Kfz_KennzeichenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kfz_KennzeichenTests.swift; sourceTree = "<group>"; };
 		01DA105B1B568EA4000A695F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01DA105D1B56A076000A695F /* SavedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEntry.swift; sourceTree = "<group>"; };
+		01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = NumberplateCodesManager.sqlite; path = "Kfz-Kennzeichen/NumberplateCodesManager.sqlite"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		01DA102D1B56757F000A695F = {
 			isa = PBXGroup;
 			children = (
+				01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */,
 				01DA10381B56757F000A695F /* Kfz-Kennzeichen */,
 				01DA104E1B56757F000A695F /* Kfz-KennzeichenTests */,
 				01DA10371B56757F000A695F /* Products */,
@@ -198,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DA10601B57D7B0000A695F /* NumberplateCodesManager.sqlite in Resources */,
 				01DA10411B56757F000A695F /* Main.storyboard in Resources */,
 				01DA10461B56757F000A695F /* LaunchScreen.xib in Resources */,
 				01DA10431B56757F000A695F /* Images.xcassets in Resources */,

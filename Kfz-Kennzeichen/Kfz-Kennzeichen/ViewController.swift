@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Darwin
 
 class ViewController: UIViewController {
+    let databaseName = "NumberplateCodesManager.sqlite"
 
     @IBOutlet weak var CodeInput: UITextField!
     @IBOutlet weak var SearchButton: UIButton!
@@ -33,6 +35,8 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         let savedEntry = SavedEntry()
+        
+        createEditableCopyOfDatabaseIfNeeded()
 
         if (segue!.identifier! == "showDetail") {
             savedEntry.code = "Search"
@@ -53,6 +57,32 @@ class ViewController: UIViewController {
         
         var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
         detailViewControler.savedEntry = savedEntry
+    }
+    
+    func getWritableDBPath() -> String {
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as String
+        return docsDir + databaseName
+    }
+    
+    func createEditableCopyOfDatabaseIfNeeded() {
+        var databasePath = getWritableDBPath()
+        
+    var fileManager = NSFileManager()
+        if (fileManager.fileExistsAtPath(databasePath)) {
+            return
+        } else {
+            // copy the database to the appropriate location
+            let defaultDBPath = NSBundle.mainBundle().pathForResource(databaseName, ofType: nil)
+            var error:NSError?
+            var success = fileManager.copyItemAtPath(defaultDBPath!, toPath: databasePath, error: &error)
+            
+            if (!success){
+               exit(Int32(error!.code))
+            }
+        }
     }
 }
 
