@@ -10,9 +10,12 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var label: UILabel!
-    
     var savedEntry: SavedEntry?
+    
+    @IBOutlet weak var code: UILabel!
+    @IBOutlet weak var district: UILabel!
+    @IBOutlet weak var districtCenter: UILabel!
+    @IBOutlet weak var jokes: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         savedEntry = nil
@@ -23,7 +26,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        label.text = savedEntry?.code
+        code.text = savedEntry!.code
+        district.text = savedEntry!.district
+        districtCenter.text = savedEntry!.district_center
+        jokes.text = "\n".join(savedEntry!.jokes)
     }
 
     override func didReceiveMemoryWarning() {

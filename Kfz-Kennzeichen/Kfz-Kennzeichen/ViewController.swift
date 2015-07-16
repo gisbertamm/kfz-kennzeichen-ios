@@ -36,9 +36,17 @@ class ViewController: UIViewController {
 
         if (segue!.identifier! == "showDetail") {
             savedEntry.code = "Search"
+            savedEntry.district = "SearchDistrict"
+            savedEntry.district_center = "SearchDistrictCenter"
+            savedEntry.jokes.append("SearchJoke 1")
+            savedEntry.jokes.append("SearchJoke 2")
         }
         else if (segue!.identifier! == "showRandomDetail") {
             savedEntry.code = "Random"
+            savedEntry.district = "RandomDistrict"
+            savedEntry.district_center = "RandomDistrictCenter"
+            savedEntry.jokes.append("RandomJoke 1")
+            savedEntry.jokes.append("RandomJoke 2")
         } else {
             savedEntry.code = "unknown segue"
         }

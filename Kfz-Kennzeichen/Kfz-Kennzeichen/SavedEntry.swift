@@ -15,5 +15,5 @@ class SavedEntry: NSObject {
     var district_center: String = ""
     var state: String = ""
     var district_wikipedia_url: String = ""
-    var jokes: Array<String> = [""]
+    var jokes: [String] = [""]
 }
