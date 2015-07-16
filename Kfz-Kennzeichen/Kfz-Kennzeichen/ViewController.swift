@@ -39,11 +39,27 @@ class ViewController: UIViewController {
         createEditableCopyOfDatabaseIfNeeded()
 
         if (segue!.identifier! == "showDetail") {
-            savedEntry.code = "Search"
-            savedEntry.district = "SearchDistrict"
-            savedEntry.district_center = "SearchDistrictCenter"
-            savedEntry.jokes.append("SearchJoke 1")
-            savedEntry.jokes.append("SearchJoke 2")
+            
+            var db = SQLiteDatabase();
+            db.open(getWritableDBPath());
+            
+            var statement = SQLiteStatement(database: db);
+            
+            if ( statement.prepare("SELECT * FROM numberplate_codes WHERE code = ?") != .Ok )
+            {
+                /* handle error */
+            }
+            
+            statement.bindString(1, value: CodeInput.text);
+            
+            if ( statement.step() == .Row )
+            {
+                savedEntry.code = statement.getStringAt(1)!
+                savedEntry.district = statement.getStringAt(2)!
+                savedEntry.district_center = statement.getStringAt(3)!
+            }
+            
+            statement.finalizeStatement();
         }
         else if (segue!.identifier! == "showRandomDetail") {
             savedEntry.code = "Random"
