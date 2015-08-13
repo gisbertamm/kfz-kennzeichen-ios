@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         
         var db = SQLiteDatabase();
         db.open(getWritableDBPath());
+        
+        var code = "";
 
         if (segue!.identifier! == "showDetail") {
             
@@ -54,7 +56,7 @@ class ViewController: UIViewController {
             
             if ( statement.step() == .Row )
             {
-                mapData(statement, savedEntry: savedEntry);
+                code = mapData(statement, savedEntry: savedEntry);
             }
             
             statement.finalizeStatement();
@@ -71,7 +73,7 @@ class ViewController: UIViewController {
             
             if ( statement.step() == .Row )
             {
-                mapData(statement, savedEntry: savedEntry);
+                code = mapData(statement, savedEntry: savedEntry);
             }
             
             statement.finalizeStatement();
@@ -79,14 +81,36 @@ class ViewController: UIViewController {
             savedEntry.code = "unknown segue"
         }
         
+        // add jokes
+        var statement = SQLiteStatement(database: db);
+        if ( statement.prepare("SELECT jokes FROM jokes WHERE code = ?") != .Ok )
+        {
+            /* handle error */
+        }
+        
+        statement.bindString(1, value: code);
+        
+        while ( statement.step() == .Row )
+        {
+            savedEntry.jokes.append(statement.getStringAt(0)!)
+        }
+        
+        statement.finalizeStatement();
+        
+        
+        // display data
         var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
         detailViewControler.savedEntry = savedEntry
     }
     
-    func mapData(statement: SQLiteStatement, savedEntry: SavedEntry) {
+    func mapData(statement: SQLiteStatement, savedEntry: SavedEntry) -> String {
         savedEntry.code = statement.getStringAt(1)!
         savedEntry.district = statement.getStringAt(2)!
         savedEntry.district_center = statement.getStringAt(3)!
+        savedEntry.state = statement.getStringAt(3)!
+        savedEntry.district_wikipedia_url = statement.getStringAt(5)!
+        
+        return savedEntry.code;
     }
     
     func getWritableDBPath() -> String {

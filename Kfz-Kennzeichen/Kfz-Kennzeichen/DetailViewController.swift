@@ -16,6 +16,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var district: UILabel!
     @IBOutlet weak var districtCenter: UILabel!
     @IBOutlet weak var jokes: UILabel!
+    @IBOutlet weak var jokes2: UILabel!
+    @IBOutlet weak var jokes3: UILabel!
+    @IBOutlet weak var jokes4: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         savedEntry = nil
@@ -29,7 +32,18 @@ class DetailViewController: UIViewController {
         code.text = savedEntry!.code
         district.text = savedEntry!.district
         districtCenter.text = savedEntry!.district_center
-        jokes.text = "\n".join(savedEntry!.jokes)
+        if (savedEntry?.jokes.count > 0) {
+            jokes.text = savedEntry!.jokes[0]
+        }
+        if (savedEntry?.jokes.count > 1) {
+            jokes2.text = savedEntry!.jokes[1]
+        }
+        if (savedEntry?.jokes.count > 2) {
+            jokes3.text = savedEntry!.jokes[2]
+        }
+        if (savedEntry?.jokes.count > 3) {
+            jokes4.text = savedEntry!.jokes[3]
+        }
     }
 
     override func didReceiveMemoryWarning() {
