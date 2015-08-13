@@ -56,7 +56,7 @@ class ViewController: UIViewController {
                 /* handle error */
             }
             
-            statement.bindString(1, value: CodeInput.text);
+            statement.bindString(1, value: CodeInput.text.uppercaseString);
             
             if ( statement.step() == .Row )
             {
