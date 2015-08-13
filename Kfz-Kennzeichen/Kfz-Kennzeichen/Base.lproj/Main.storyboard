@@ -47,6 +47,12 @@
                                     <segue destination="U3Y-e3-xT8" kind="show" identifier="showRandomDetail" id="vN1-Lf-5b3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTe-8k-WJB">
+                                <rect key="frame" x="53" y="110" width="214" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -57,11 +63,12 @@
                         <outlet property="CodeInput" destination="rZ2-qj-vYf" id="XRZ-if-3bp"/>
                         <outlet property="RandomButton" destination="aAS-Ay-UZ8" id="eOg-Kt-uxE"/>
                         <outlet property="SearchButton" destination="cLu-qr-iAa" id="aKA-SL-4WG"/>
+                        <outlet property="carSymbol" destination="tTe-8k-WJB" id="Ied-WY-fXf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="993"/>
+            <point key="canvasLocation" x="878" y="999"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="aIG-Q2-Vog">

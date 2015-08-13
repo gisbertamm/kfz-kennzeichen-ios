@@ -12,6 +12,7 @@ import Darwin
 class ViewController: UIViewController {
     let databaseName = "NumberplateCodesManager.sqlite"
 
+    @IBOutlet weak var carSymbol: UILabel!
     @IBOutlet weak var CodeInput: UITextField!
     @IBOutlet weak var SearchButton: UIButton!
     @IBOutlet weak var RandomButton: UIButton!
@@ -26,6 +27,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        carSymbol.text = "\u{1f697}"
+        carSymbol.font = carSymbol.font.fontWithSize(72)
+        carSymbol.textAlignment = .Center
     }
 
     override func didReceiveMemoryWarning() {
