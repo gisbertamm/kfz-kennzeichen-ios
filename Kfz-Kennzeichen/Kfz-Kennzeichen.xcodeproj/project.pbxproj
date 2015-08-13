@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		019600751B7CA1B900AA801C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		01DA10361B56757F000A695F /* Kfz-Kennzeichen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kfz-Kennzeichen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DA103A1B56757F000A695F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01DA103B1B56757F000A695F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		01DA102D1B56757F000A695F = {
 			isa = PBXGroup;
 			children = (
+				019600751B7CA1B900AA801C /* libsqlite3.dylib */,
 				01DA10681B57ECD6000A695F /* libsqlite3.0.dylib */,
 				01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */,
 				01DA10381B56757F000A695F /* Kfz-Kennzeichen */,
@@ -369,6 +371,7 @@
 				INFOPLIST_FILE = "Kfz-Kennzeichen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kfz-Kennzeichen/SwiftSQLite-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -379,6 +382,7 @@
 				INFOPLIST_FILE = "Kfz-Kennzeichen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kfz-Kennzeichen/SwiftSQLite-Bridging-Header.h";
 			};
 			name = Release;
 		};
