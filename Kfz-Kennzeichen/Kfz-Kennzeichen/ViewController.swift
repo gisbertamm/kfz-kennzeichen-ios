@@ -37,11 +37,11 @@ class ViewController: UIViewController {
         let savedEntry = SavedEntry()
         
         createEditableCopyOfDatabaseIfNeeded()
+        
+        var db = SQLiteDatabase();
+        db.open(getWritableDBPath());
 
         if (segue!.identifier! == "showDetail") {
-            
-            var db = SQLiteDatabase();
-            db.open(getWritableDBPath());
             
             var statement = SQLiteStatement(database: db);
             
@@ -54,25 +54,39 @@ class ViewController: UIViewController {
             
             if ( statement.step() == .Row )
             {
-                savedEntry.code = statement.getStringAt(1)!
-                savedEntry.district = statement.getStringAt(2)!
-                savedEntry.district_center = statement.getStringAt(3)!
+                mapData(statement, savedEntry: savedEntry);
             }
             
             statement.finalizeStatement();
         }
         else if (segue!.identifier! == "showRandomDetail") {
-            savedEntry.code = "Random"
-            savedEntry.district = "RandomDistrict"
-            savedEntry.district_center = "RandomDistrictCenter"
-            savedEntry.jokes.append("RandomJoke 1")
-            savedEntry.jokes.append("RandomJoke 2")
+            var statement = SQLiteStatement(database: db);
+            
+            if ( statement.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") != .Ok )
+            {
+                /* handle error */
+            }
+            
+            statement.bindString(1, value: CodeInput.text);
+            
+            if ( statement.step() == .Row )
+            {
+                mapData(statement, savedEntry: savedEntry);
+            }
+            
+            statement.finalizeStatement();
         } else {
             savedEntry.code = "unknown segue"
         }
         
         var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
         detailViewControler.savedEntry = savedEntry
+    }
+    
+    func mapData(statement: SQLiteStatement, savedEntry: SavedEntry) {
+        savedEntry.code = statement.getStringAt(1)!
+        savedEntry.district = statement.getStringAt(2)!
+        savedEntry.district_center = statement.getStringAt(3)!
     }
     
     func getWritableDBPath() -> String {
