@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     
     var savedEntry: SavedEntry?
     var textField: UITextField?
+    let maxLengthOfProposal = 30
     
     @IBOutlet weak var code: UILabel!
     @IBOutlet weak var district: UILabel!
@@ -21,18 +22,27 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jokes3: UILabel!
     @IBOutlet weak var jokes4: UILabel!
     @IBAction func proposeJoke(sender: UIButton) {
-        var proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Text eingeben", preferredStyle: UIAlertControllerStyle.Alert)
+        var proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Text eingeben (maximal " + String(self.maxLengthOfProposal) + " Zeichen).", preferredStyle: UIAlertControllerStyle.Alert)
         
         proposeAlert.addAction(UIAlertAction(title: "Vorschlagen", style: .Default, handler: { (action: UIAlertAction!) in
             if (self.textField!.text.isEmpty) {
-                var emptyJokeAlert = UIAlertController(title: "Kein Text eingegeben", message: "Bitte Text eingeben", preferredStyle: UIAlertControllerStyle.Alert)
+                var emptyJokeAlert = UIAlertController(title: "Kein Text eingegeben", message: "Bitte Text eingeben.", preferredStyle: UIAlertControllerStyle.Alert)
                 emptyJokeAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
                     println("Proposal was empty.")
                     // do nothing
                 }))
                 self.presentViewController(emptyJokeAlert, animated: true, completion: nil)
             } else {
-                println("Proposal: " + self.textField!.text)
+                if (self.textField!.text.utf16Count > self.maxLengthOfProposal) {
+                    var tooLongJokeAlert = UIAlertController(title: "Text ist zu lang", message: "Der Text darf nicht länger sein als " + String(self.maxLengthOfProposal) + " Zeichen.", preferredStyle: UIAlertControllerStyle.Alert)
+                    tooLongJokeAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
+                        println("Proposal was too long.")
+                        // do nothing
+                    }))
+                    self.presentViewController(tooLongJokeAlert, animated: true, completion: nil)
+                } else {
+                    println("Proposal: " + self.textField!.text);
+                }
             }
         }))
         
