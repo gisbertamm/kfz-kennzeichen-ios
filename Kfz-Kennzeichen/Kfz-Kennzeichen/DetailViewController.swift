@@ -24,7 +24,16 @@ class DetailViewController: UIViewController {
         var proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Text eingeben", preferredStyle: UIAlertControllerStyle.Alert)
         
         proposeAlert.addAction(UIAlertAction(title: "Vorschlagen", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Proposal: " + self.textField!.text)
+            if (self.textField!.text.isEmpty) {
+                var emptyJokeAlert = UIAlertController(title: "Kein Text eingegeben", message: "Bitte Text eingeben", preferredStyle: UIAlertControllerStyle.Alert)
+                emptyJokeAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
+                    println("Proposal was empty.")
+                    // do nothing
+                }))
+                self.presentViewController(emptyJokeAlert, animated: true, completion: nil)
+            } else {
+                println("Proposal: " + self.textField!.text)
+            }
         }))
         
         proposeAlert.addAction(UIAlertAction(title: "Abbrechen", style: .Default, handler: { (action: UIAlertAction!) in
