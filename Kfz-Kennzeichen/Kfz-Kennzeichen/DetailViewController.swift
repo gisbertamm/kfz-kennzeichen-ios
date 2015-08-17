@@ -19,6 +19,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jokes2: UILabel!
     @IBOutlet weak var jokes3: UILabel!
     @IBOutlet weak var jokes4: UILabel!
+    @IBAction func proposeJoke(sender: UIButton) {
+        println("Propose own joke");
+    }
     
     required init(coder aDecoder: NSCoder) {
         savedEntry = nil
