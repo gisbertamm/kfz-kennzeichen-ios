@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var savedEntry: SavedEntry?
+    var textField: UITextField?
     
     @IBOutlet weak var code: UILabel!
     @IBOutlet weak var district: UILabel!
@@ -20,18 +21,28 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jokes3: UILabel!
     @IBOutlet weak var jokes4: UILabel!
     @IBAction func proposeJoke(sender: UIButton) {
-        var proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Spruch eingeben", preferredStyle: UIAlertControllerStyle.Alert)
+        var proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Text eingeben", preferredStyle: UIAlertControllerStyle.Alert)
         
         proposeAlert.addAction(UIAlertAction(title: "Vorschlagen", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Handle Ok logic here")
+            println("Proposal: " + self.textField!.text)
         }))
         
         proposeAlert.addAction(UIAlertAction(title: "Abbrechen", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Handle Cancel Logic here")
+            println("Cancelled. No proposal made.")
         }))
+        
+        proposeAlert.addTextFieldWithConfigurationHandler(configurationTextField)
         
         presentViewController(proposeAlert, animated: true, completion: nil)
     }
+    
+    func configurationTextField(textField: UITextField!)
+    {
+        if let tField = textField {
+            self.textField = textField! //Save reference to the UITextField
+        }
+    }
+
     
     required init(coder aDecoder: NSCoder) {
         savedEntry = nil
