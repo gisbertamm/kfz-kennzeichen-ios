@@ -20,7 +20,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jokes3: UILabel!
     @IBOutlet weak var jokes4: UILabel!
     @IBAction func proposeJoke(sender: UIButton) {
-        println("Propose own joke");
+        var proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Spruch eingeben", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        proposeAlert.addAction(UIAlertAction(title: "Vorschlagen", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Ok logic here")
+        }))
+        
+        proposeAlert.addAction(UIAlertAction(title: "Abbrechen", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Cancel Logic here")
+        }))
+        
+        presentViewController(proposeAlert, animated: true, completion: nil)
     }
     
     required init(coder aDecoder: NSCoder) {
