@@ -45,27 +45,33 @@ class DetailViewController: UIViewController {
                     var url = NSURL(string: "https://api.mailgun.net/v3/sandbox47fa9b0a752440c794641c362d468402.mailgun.org/messages")
                     var request = NSMutableURLRequest(URL: url!)
                     request.HTTPMethod = "POST"
-                    let loginString = NSString(format: "%@:%@", "api", "key-6bfcb91c1bfe2d24142792ca96d0690e")
+                    let loginString = NSString(format: "%@:%@", "api", "")
                     let loginData: NSData! = loginString.dataUsingEncoding(NSUTF8StringEncoding)
                     let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
                     request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
                     
-                    var bodyData = "from=In-App-Proposal <kfz-kennzeichen-spruch-vorschlag@web.de>&to=kfz-kennzeichen-spruch-vorschlag@web.de&subject=Neuer Vorschlag&text=" + self.textField!.text
+                    var bodyData = "from=In-App-Proposal <kfz-kennzeichen-spruch-vorschlag@web.de>&to=kfz-kennzeichen-spruch-vorschlag@web.de&subject=Neuer Vorschlag für Kennzeichen-Joke (iOS)&text=code: " + self.code!.text! + ", Vorschlag: " + self.textField!.text
                     request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
                     
                     NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
                         {
                             (response, data, error) in
                             if (error != nil) {
-                                println(error.description)
+                                self.displayProposalError(error.description)
                             } else {
                                 if let HTTPResponse = response as? NSHTTPURLResponse {
                                     let statusCode = HTTPResponse.statusCode
+                                    let status = HTTPResponse.description
                                     
                                     if statusCode == 200 {
                                         println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                                        var successAlert = UIAlertController(title: "Danke!", message: "Der Vorschlag wurde erfolgreich übermittelt", preferredStyle: UIAlertControllerStyle.Alert)
+                                            successAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
+                                            // do nothing
+                                        }))
+                                        self.presentViewController(successAlert, animated: true, completion: nil)
                                     } else {
-                                        println("statuscode: " + String(statusCode))
+                                        self.displayProposalError("HTTP " + String(statusCode) + ": " + self.description)
                                     }
                                 }
                             }
@@ -81,6 +87,14 @@ class DetailViewController: UIViewController {
         proposeAlert.addTextFieldWithConfigurationHandler(configurationTextField)
         
         presentViewController(proposeAlert, animated: true, completion: nil)
+    }
+    
+    func displayProposalError(error: String) {
+        var successAlert = UIAlertController(title: "Tut uns leid", message: "Der Vorschlag konnte leider nicht übermittelt werden. Fehler: " + error, preferredStyle: UIAlertControllerStyle.Alert)
+        successAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
+            // do nothing
+        }))
+        self.presentViewController(successAlert, animated: true, completion: nil)
     }
     
     func configurationTextField(textField: UITextField!)
