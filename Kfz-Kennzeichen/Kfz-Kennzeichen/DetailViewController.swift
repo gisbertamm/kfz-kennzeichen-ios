@@ -42,6 +42,34 @@ class DetailViewController: UIViewController {
                     self.presentViewController(tooLongJokeAlert, animated: true, completion: nil)
                 } else {
                     println("Proposal: " + self.textField!.text);
+                    var url = NSURL(string: "https://api.mailgun.net/v3/sandbox47fa9b0a752440c794641c362d468402.mailgun.org/messages")
+                    var request = NSMutableURLRequest(URL: url!)
+                    request.HTTPMethod = "POST"
+                    let loginString = NSString(format: "%@:%@", "api", "key-6bfcb91c1bfe2d24142792ca96d0690e")
+                    let loginData: NSData! = loginString.dataUsingEncoding(NSUTF8StringEncoding)
+                    let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
+                    request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                    
+                    var bodyData = "from=In-App-Proposal <kfz-kennzeichen-spruch-vorschlag@web.de>&to=kfz-kennzeichen-spruch-vorschlag@web.de&subject=Neuer Vorschlag&text=" + self.textField!.text
+                    request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+                    
+                    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+                        {
+                            (response, data, error) in
+                            if (error != nil) {
+                                println(error.description)
+                            } else {
+                                if let HTTPResponse = response as? NSHTTPURLResponse {
+                                    let statusCode = HTTPResponse.statusCode
+                                    
+                                    if statusCode == 200 {
+                                        println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                                    } else {
+                                        println("statuscode: " + String(statusCode))
+                                    }
+                                }
+                            }
+                    }
                 }
             }
         }))
