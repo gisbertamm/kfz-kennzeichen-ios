@@ -122,7 +122,7 @@ class ViewController: UIViewController {
             .UserDomainMask, true)
         
         let docsDir = dirPaths[0] as String
-        return docsDir + databaseName
+        return docsDir + "/" + databaseName
     }
     
     func createEditableCopyOfDatabaseIfNeeded() {
@@ -138,6 +138,8 @@ class ViewController: UIViewController {
             var success = fileManager.copyItemAtPath(defaultDBPath!, toPath: databasePath, error: &error)
             
             if (!success){
+               println("Could not copy database from " + defaultDBPath! + " to " + databasePath)
+               println(error?.description)
                exit(Int32(error!.code))
             }
         }
