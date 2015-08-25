@@ -101,13 +101,22 @@ class ViewController: UIViewController {
         
         statement.finalizeStatement();
         
-        
-        // display data
-        var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
-        detailViewControler.savedEntry = savedEntry
+        if savedEntry.code.isEmpty {
+            var emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
+            emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
+                println("Unknown code or empty search.")
+                // do nothing
+            }))
+            self.presentViewController(emptyEntryAlert, animated: true, completion: nil)
+        } else {
+            // display data
+            var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
+            detailViewControler.savedEntry = savedEntry
+        }
     }
     
     func mapData(statement: SQLiteStatement, savedEntry: SavedEntry) -> String {
+        savedEntry.id = statement.getStringAt(0)!
         savedEntry.code = statement.getStringAt(1)!
         savedEntry.district = statement.getStringAt(2)!
         savedEntry.district_center = statement.getStringAt(3)!
