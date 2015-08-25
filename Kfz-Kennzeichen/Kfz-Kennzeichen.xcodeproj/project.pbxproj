@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01AD85481B8CB98F00FFD09C /* api_key in Resources */ = {isa = PBXBuildFile; fileRef = 01AD85471B8CB98F00FFD09C /* api_key */; };
 		01DA103C1B56757F000A695F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA103B1B56757F000A695F /* AppDelegate.swift */; };
 		01DA103E1B56757F000A695F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA103D1B56757F000A695F /* ViewController.swift */; };
 		01DA10411B56757F000A695F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DA103F1B56757F000A695F /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		019600751B7CA1B900AA801C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		01AD85471B8CB98F00FFD09C /* api_key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = api_key; path = "Kfz-Kennzeichen/api_key"; sourceTree = "<group>"; };
 		01DA10361B56757F000A695F /* Kfz-Kennzeichen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kfz-Kennzeichen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DA103A1B56757F000A695F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01DA103B1B56757F000A695F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		01DA102D1B56757F000A695F = {
 			isa = PBXGroup;
 			children = (
+				01AD85471B8CB98F00FFD09C /* api_key */,
 				019600751B7CA1B900AA801C /* libsqlite3.dylib */,
 				01DA10681B57ECD6000A695F /* libsqlite3.0.dylib */,
 				01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */,
@@ -220,6 +223,7 @@
 			files = (
 				01DA10601B57D7B0000A695F /* NumberplateCodesManager.sqlite in Resources */,
 				01DA10411B56757F000A695F /* Main.storyboard in Resources */,
+				01AD85481B8CB98F00FFD09C /* api_key in Resources */,
 				01DA10461B56757F000A695F /* LaunchScreen.xib in Resources */,
 				01DA10431B56757F000A695F /* Images.xcassets in Resources */,
 			);
