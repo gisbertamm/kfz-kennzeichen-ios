@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     var textField: UITextField?
     let maxLengthOfProposal = 30
     
+    @IBOutlet weak var crestImage: UIImageView!
     @IBOutlet weak var code: UILabel!
     @IBOutlet weak var district: UILabel!
     @IBOutlet weak var districtCenter: UILabel!
@@ -138,6 +139,9 @@ class DetailViewController: UIViewController {
         if (savedEntry?.jokes.count > 3) {
             jokes4.text = savedEntry!.jokes[3]
         }
+        
+        let imagePath = NSBundle.mainBundle().pathForResource(savedEntry!.code.lowercaseString, ofType: "png")
+        crestImage.image = UIImage(contentsOfFile: imagePath!)
     }
 
     override func didReceiveMemoryWarning() {
