@@ -8,10 +8,9 @@
 
 import UIKit
 import Darwin
+import SQLite
 
 class ViewController: UIViewController {
-    let databaseName = "NumberplateCodesManager.sqlite"
-
     @IBOutlet weak var carSymbol: UILabel!
     @IBOutlet weak var CodeInput: UITextField!
     @IBOutlet weak var SearchButton: UIButton!
@@ -23,6 +22,14 @@ class ViewController: UIViewController {
     
     @IBAction func RandomAction(sender: UIButton) {
     }
+
+    let databaseName = "NumberplateCodesManager.sqlite"
+    let idColumn = Expression<String>("_id")
+    let codeColumn = Expression<String>("code")
+    let districtColumn = Expression<String>("district")
+    let district_centerColumn = Expression<String>("district_center")
+    let stateColumn = Expression<String>("state")
+    let district_wikipedia_urlColumn = Expression<String>("district_wikipedia_url")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,88 +49,62 @@ class ViewController: UIViewController {
         
         createEditableCopyOfDatabaseIfNeeded()
         
-        var db = SQLiteDatabase();
-        db.open(getWritableDBPath());
+        var db:Connection
+        var numberplate_codes: Table
+        var jokes: Table
         
-        var code = "";
+        do {
+            db = try Connection(getWritableDBPath());
+            numberplate_codes = Table("numberplate_codes")
+            jokes = Table("jokes")
 
         if (segue!.identifier! == "showDetail") {
             
-            var statement = SQLiteStatement(database: db);
+            let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
             
-            if ( statement.prepare("SELECT * FROM numberplate_codes WHERE code = ?") != .Ok )
-            {
-                /* handle error */
-            }
-            
-            statement.bindString(1, value: CodeInput.text.uppercaseString);
-            
-            if ( statement.step() == .Row )
-            {
-                code = mapData(statement, savedEntry: savedEntry);
-            }
-            
-            statement.finalizeStatement();
-        }
+            mapData(row.first!, savedEntry: savedEntry);
+         }
         else if (segue!.identifier! == "showRandomDetail") {
-            var statement = SQLiteStatement(database: db);
+            let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).order(random()).limit(1)))
             
-            if ( statement.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") != .Ok )
-            {
-                /* handle error */
-            }
-            
-            statement.bindString(1, value: CodeInput.text);
-            
-            if ( statement.step() == .Row )
-            {
-                code = mapData(statement, savedEntry: savedEntry);
-            }
-            
-            statement.finalizeStatement();
+            mapData(row.first!, savedEntry: savedEntry);
         } else {
             savedEntry.code = "unknown segue"
         }
         
         // add jokes
-        var statement = SQLiteStatement(database: db);
-        if ( statement.prepare("SELECT jokes FROM jokes WHERE code = ?") != .Ok )
+        let jokesColumn = Expression<String>("jokes")
+        
+        
+        for jokeRow in db.prepare(jokes.select(jokesColumn).filter(codeColumn == CodeInput.text!.uppercaseString))
         {
-            /* handle error */
+            savedEntry.jokes.append(jokeRow[jokesColumn])
         }
-        
-        statement.bindString(1, value: code);
-        
-        while ( statement.step() == .Row )
-        {
-            savedEntry.jokes.append(statement.getStringAt(0)!)
-        }
-        
-        statement.finalizeStatement();
         
         if savedEntry.code.isEmpty {
-            var emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
-            emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction!) in
-                println("Unknown code or empty search.")
+            let emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
+            emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction) in
+                print("Unknown code or empty search.")
                 // do nothing
             }))
             self.presentViewController(emptyEntryAlert, animated: true, completion: nil)
         } else {
             // display data
-            var detailViewControler: DetailViewController = segue!.destinationViewController as DetailViewController
+            let detailViewControler: DetailViewController = segue!.destinationViewController as! DetailViewController
             detailViewControler.savedEntry = savedEntry
+        }
+        } catch {
+            // TODO
         }
     }
     
-    func mapData(statement: SQLiteStatement, savedEntry: SavedEntry) -> String {
-        savedEntry.id = statement.getStringAt(0)!
-        savedEntry.code = statement.getStringAt(1)!
-        savedEntry.district = statement.getStringAt(2)!
-        savedEntry.district_center = statement.getStringAt(3)!
-        savedEntry.state = statement.getStringAt(3)!
-        savedEntry.district_wikipedia_url = statement.getStringAt(5)!
-        
-        return savedEntry.code;
+    func mapData(row: Row, savedEntry: SavedEntry) {
+        //savedEntry.id = row[idColumn]
+        savedEntry.code = row[codeColumn]
+        savedEntry.district = row[districtColumn]
+        savedEntry.district_center = row[district_centerColumn]
+        savedEntry.state = row[stateColumn]
+        savedEntry.district_wikipedia_url = row[district_wikipedia_urlColumn]
     }
     
     func getWritableDBPath() -> String {
@@ -135,20 +116,27 @@ class ViewController: UIViewController {
     }
     
     func createEditableCopyOfDatabaseIfNeeded() {
-        var databasePath = getWritableDBPath()
+        let databasePath = getWritableDBPath()
         
-    var fileManager = NSFileManager()
+    let fileManager = NSFileManager()
         if (fileManager.fileExistsAtPath(databasePath)) {
             return
         } else {
             // copy the database to the appropriate location
             let defaultDBPath = NSBundle.mainBundle().pathForResource(databaseName, ofType: nil)
             var error:NSError?
-            var success = fileManager.copyItemAtPath(defaultDBPath!, toPath: databasePath, error: &error)
+            var success: Bool
+            do {
+                try fileManager.copyItemAtPath(defaultDBPath!, toPath: databasePath)
+                success = true
+            } catch let error1 as NSError {
+                error = error1
+                success = false
+            }
             
             if (!success){
-               println("Could not copy database from " + defaultDBPath! + " to " + databasePath)
-               println(error?.description)
+               print("Could not copy database from " + defaultDBPath! + " to " + databasePath)
+               print(error?.description)
                exit(Int32(error!.code))
             }
         }
