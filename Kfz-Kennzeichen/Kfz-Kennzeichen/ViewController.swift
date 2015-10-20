@@ -65,9 +65,14 @@ class ViewController: UIViewController {
             mapData(row.first!, savedEntry: savedEntry);
          }
         else if (segue!.identifier! == "showRandomDetail") {
-            let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).order(random()).limit(1)))
+            for row in db.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") {
+                savedEntry.code = row[1] as! String
+                savedEntry.district = row[2] as! String
+                savedEntry.district_center = row[3] as! String
+                savedEntry.state = row[4] as! String
+                savedEntry.district_wikipedia_url = row[5] as! String
+            }
             
-            mapData(row.first!, savedEntry: savedEntry);
         } else {
             savedEntry.code = "unknown segue"
         }
