@@ -138,11 +138,20 @@ class DetailViewController: UIViewController {
         if (savedEntry?.jokes.count > 3) {
             jokes4.text = savedEntry!.jokes[3]
         }
-        
-        let imagePath = NSBundle.mainBundle().pathForResource(savedEntry!.code.lowercaseString, ofType: "png")
-        crestImage.image = UIImage(contentsOfFile: imagePath!)
+      
+        if (isNumbersOnly(savedEntry!.code)) {
+            // there are only images for letter codes
+        } else {
+            let imagePath = NSBundle.mainBundle().pathForResource(savedEntry!.code.lowercaseString, ofType: "png")
+            crestImage.image = UIImage(contentsOfFile: imagePath!)
+        }
     }
 
+    func isNumbersOnly(input: String) -> Bool {
+        let regexNumbersOnly = try! NSRegularExpression(pattern: ".*[^0-9].*", options: [])
+        return regexNumbersOnly.firstMatchInString(input, options: [], range: NSMakeRange(0, input.characters.count)) == nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
