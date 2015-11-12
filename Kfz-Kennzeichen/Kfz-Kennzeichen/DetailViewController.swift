@@ -126,6 +126,13 @@ class DetailViewController: UIViewController {
         code.text = savedEntry!.code
         district.text = savedEntry!.district
         districtCenter.text = savedEntry!.district_center
+        
+        // clear all jokes
+        jokes.text = ""
+        jokes2.text = ""
+        jokes3.text = ""
+        jokes4.text = ""
+        
         if (savedEntry?.jokes.count > 0) {
             jokes.text = savedEntry!.jokes[0]
         }

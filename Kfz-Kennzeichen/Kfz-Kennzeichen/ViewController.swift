@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         carSymbol.text = "\u{1f697}"
-        carSymbol.font = carSymbol.font.fontWithSize(72)
+        carSymbol.font = carSymbol.font.fontWithSize(96)
         carSymbol.textAlignment = .Center
     }
 
@@ -63,8 +63,14 @@ class ViewController: UIViewController {
             let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
             
             mapData(row.first!, savedEntry: savedEntry);
+            
+            // empty input field
+            CodeInput.text = ""
          }
         else if (segue!.identifier! == "showRandomDetail") {
+            // empty input field
+            CodeInput.text = ""
+            
             for row in db.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") {
                 savedEntry.code = row[1] as! String
                 savedEntry.district = row[2] as! String
@@ -72,20 +78,14 @@ class ViewController: UIViewController {
                 savedEntry.state = row[4] as! String
                 savedEntry.district_wikipedia_url = row[5] as! String
             }
+
             
         } else {
             savedEntry.code = "unknown segue"
         }
-        
-        // add jokes
-        let jokesColumn = Expression<String>("jokes")
-        
-        
-        for jokeRow in db.prepare(jokes.select(jokesColumn).filter(codeColumn == CodeInput.text!.uppercaseString))
-        {
-            savedEntry.jokes.append(jokeRow[jokesColumn])
-        }
-        
+            
+        addJokes(db, jokes: jokes, savedEntry: savedEntry)
+            
         if savedEntry.code.isEmpty {
             let emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
             emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction) in
@@ -110,6 +110,16 @@ class ViewController: UIViewController {
         savedEntry.district_center = row[district_centerColumn]
         savedEntry.state = row[stateColumn]
         savedEntry.district_wikipedia_url = row[district_wikipedia_urlColumn]
+    }
+    
+    func addJokes(db:Connection, jokes: Table, savedEntry: SavedEntry) {
+        let jokesColumn = Expression<String>("jokes")
+        
+        for jokeRow in db.prepare(jokes.select(jokesColumn).filter(codeColumn == savedEntry.code))
+        {
+            savedEntry.jokes.append(jokeRow[jokesColumn])
+        }
+
     }
     
     func getWritableDBPath() -> String {
