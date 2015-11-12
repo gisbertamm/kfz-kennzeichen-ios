@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var savedEntry: SavedEntry?
     var textField: UITextField?
@@ -18,10 +18,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var code: UILabel!
     @IBOutlet weak var district: UILabel!
     @IBOutlet weak var districtCenter: UILabel!
-    @IBOutlet weak var jokes: UILabel!
-    @IBOutlet weak var jokes2: UILabel!
-    @IBOutlet weak var jokes3: UILabel!
-    @IBOutlet weak var jokes4: UILabel!
+    
+    @IBOutlet var tableView: UITableView!
+    
     @IBAction func proposeJoke(sender: UIButton) {
         let proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Text eingeben (maximal " + String(self.maxLengthOfProposal) + " Zeichen).", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -122,30 +121,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         // Do any additional setup after loading the view.
         code.text = savedEntry!.code
         district.text = savedEntry!.district
         districtCenter.text = savedEntry!.district_center
         
-        // clear all jokes
-        jokes.text = ""
-        jokes2.text = ""
-        jokes3.text = ""
-        jokes4.text = ""
-        
-        if (savedEntry?.jokes.count > 0) {
-            jokes.text = savedEntry!.jokes[0]
-        }
-        if (savedEntry?.jokes.count > 1) {
-            jokes2.text = savedEntry!.jokes[1]
-        }
-        if (savedEntry?.jokes.count > 2) {
-            jokes3.text = savedEntry!.jokes[2]
-        }
-        if (savedEntry?.jokes.count > 3) {
-            jokes4.text = savedEntry!.jokes[3]
-        }
-      
         if (isNumbersOnly(savedEntry!.code)) {
             // there are only images for letter codes
         } else {
@@ -162,6 +144,22 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (savedEntry?.jokes.endIndex)!
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = (self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell)
+        
+        cell.textLabel?.text = savedEntry?.jokes[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // do nothing
     }
     
 
