@@ -62,9 +62,14 @@ class ViewController: UIViewController {
             
             let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
             
-            mapData(row.first!, savedEntry: savedEntry);
+            if (row.isEmpty) {
+                // nothing found
+                savedEntry.code = "Dieses Kennzeichen gibt es nicht."
+            } else {
+                mapData(row.first!, savedEntry: savedEntry);
+            }
             
-            // empty input field
+            // empty out input field for next search
             CodeInput.text = ""
          }
         else if (segue!.identifier! == "showRandomDetail") {
