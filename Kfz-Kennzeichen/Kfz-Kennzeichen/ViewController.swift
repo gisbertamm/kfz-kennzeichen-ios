@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var CodeInput: UITextField!
     @IBOutlet weak var SearchButton: UIButton!
     @IBOutlet weak var RandomButton: UIButton!
+    @IBOutlet weak var baseConstraint: NSLayoutConstraint!
     
     @IBAction func SearchAction(sender: UIButton) {
     }
@@ -40,6 +41,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         carSymbol.text = "\u{1f697}"
         carSymbol.font = carSymbol.font.fontWithSize(96)
         carSymbol.textAlignment = .Center
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
     }
     
     override func didReceiveMemoryWarning() {
@@ -179,6 +183,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+
+    func keyboardWillShow(sender: NSNotification) {
+        animateTextFieldWithKeyboard(sender)
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        animateTextFieldWithKeyboard(sender)
+    }
+    
+    // move all controls up when the keyboard appers
+    // followed some advices from http://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift
+    // TODO consider orientation changes etc. - see http://macoscope.com/blog/working-with-keyboard-on-ios/
+    func animateTextFieldWithKeyboard(notification: NSNotification) {
+        
+        let userInfo = notification.userInfo!
+        
+        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! UInt
+        
+        // baseContraint is your Auto Layout constraint that pins the
+        // text view to the bottom of the superview.
+        
+        if notification.name == UIKeyboardWillShowNotification {
+            baseConstraint.constant = +keyboardSize.height  // move up
+        }
+        else {
+            baseConstraint.constant = 0 // move down
+        }
+        
+        view.setNeedsUpdateConstraints()
+        
+        let options = UIViewAnimationOptions(rawValue: UInt(curve << 16))
+        UIView.animateWithDuration(duration, delay: 0, options: options,
+            animations: {
+                self.view.layoutIfNeeded()
+            },
+            completion: nil
+        )
     }
 }
 
