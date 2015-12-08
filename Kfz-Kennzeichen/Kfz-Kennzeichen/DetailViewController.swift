@@ -131,7 +131,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (isNumbersOnly(savedEntry!.code)) {
             // there are only images for letter codes
         } else {
-            let imagePath = NSBundle.mainBundle().pathForResource(savedEntry!.code.lowercaseString, ofType: "png")
+            let cleanedString = replaceUmlauts(savedEntry!.code)
+            let imagePath = NSBundle.mainBundle().pathForResource(cleanedString.lowercaseString, ofType: "png")
             if (imagePath != nil) {
                 crestImage.image = UIImage(contentsOfFile: imagePath!)
             } else {
@@ -144,6 +145,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let regexNumbersOnly = try! NSRegularExpression(pattern: ".*[^0-9].*", options: [])
         return regexNumbersOnly.firstMatchInString(input, options: [], range: NSMakeRange(0, input.characters.count)) == nil
     }
+    
+    func replaceUmlauts(string: String) -> String {
+        if string.containsString("Ä") {return string.stringByReplacingOccurrencesOfString("Ä", withString: "AE")}
+        else if string.containsString("Ö") {return string.stringByReplacingOccurrencesOfString("Ö", withString: "OE")}
+        else if string.containsString("Ü") {return string.stringByReplacingOccurrencesOfString("Ü", withString: "UE")}
+        else {return string}
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
