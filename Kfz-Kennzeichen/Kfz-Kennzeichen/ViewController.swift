@@ -10,7 +10,7 @@ import UIKit
 import Darwin
 import SQLite
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var carSymbol: UILabel!
     @IBOutlet weak var CodeInput: UITextField!
     @IBOutlet weak var SearchButton: UIButton!
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func RandomAction(sender: UIButton) {
     }
-
+    
     let databaseName = "NumberplateCodesManager.sqlite"
     let idColumn = Expression<String>("_id")
     let codeColumn = Expression<String>("code")
@@ -33,12 +33,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CodeInput.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
         carSymbol.text = "\u{1f697}"
         carSymbol.font = carSymbol.font.fontWithSize(96)
         carSymbol.textAlignment = .Center
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,52 +60,52 @@ class ViewController: UIViewController {
             db = try Connection(getWritableDBPath());
             numberplate_codes = Table("numberplate_codes")
             jokes = Table("jokes")
-
-        if (segue!.identifier! == "showDetail") {
             
-            let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
-            
-            if (row.isEmpty) {
-                // nothing found
-                savedEntry.code = "Dieses Kennzeichen gibt es nicht."
+            if (segue!.identifier! == "showDetail") {
+                
+                let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
+                
+                if (row.isEmpty) {
+                    // nothing found
+                    savedEntry.code = "Dieses Kennzeichen gibt es nicht."
+                } else {
+                    mapData(row.first!, savedEntry: savedEntry);
+                }
+                
+                // empty out input field for next search
+                CodeInput.text = ""
+            }
+            else if (segue!.identifier! == "showRandomDetail") {
+                // empty input field
+                CodeInput.text = ""
+                
+                for row in db.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") {
+                    savedEntry.code = row[1] as! String
+                    savedEntry.district = row[2] as! String
+                    savedEntry.district_center = row[3] as! String
+                    savedEntry.state = row[4] as! String
+                    savedEntry.district_wikipedia_url = row[5] as! String
+                }
+                
+                
             } else {
-                mapData(row.first!, savedEntry: savedEntry);
+                savedEntry.code = "unknown segue"
             }
             
-            // empty out input field for next search
-            CodeInput.text = ""
-         }
-        else if (segue!.identifier! == "showRandomDetail") {
-            // empty input field
-            CodeInput.text = ""
+            addJokes(db, jokes: jokes, savedEntry: savedEntry)
             
-            for row in db.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") {
-                savedEntry.code = row[1] as! String
-                savedEntry.district = row[2] as! String
-                savedEntry.district_center = row[3] as! String
-                savedEntry.state = row[4] as! String
-                savedEntry.district_wikipedia_url = row[5] as! String
+            if savedEntry.code.isEmpty {
+                let emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
+                emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction) in
+                    print("Unknown code or empty search.")
+                    // do nothing
+                }))
+                self.presentViewController(emptyEntryAlert, animated: true, completion: nil)
+            } else {
+                // display data
+                let detailViewControler: DetailViewController = segue!.destinationViewController as! DetailViewController
+                detailViewControler.savedEntry = savedEntry
             }
-
-            
-        } else {
-            savedEntry.code = "unknown segue"
-        }
-            
-        addJokes(db, jokes: jokes, savedEntry: savedEntry)
-            
-        if savedEntry.code.isEmpty {
-            let emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
-            emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction) in
-                print("Unknown code or empty search.")
-                // do nothing
-            }))
-            self.presentViewController(emptyEntryAlert, animated: true, completion: nil)
-        } else {
-            // display data
-            let detailViewControler: DetailViewController = segue!.destinationViewController as! DetailViewController
-            detailViewControler.savedEntry = savedEntry
-        }
         } catch {
             // TODO
         }
@@ -124,7 +127,7 @@ class ViewController: UIViewController {
         {
             savedEntry.jokes.append(jokeRow[jokesColumn])
         }
-
+        
     }
     
     func getWritableDBPath() -> String {
@@ -138,7 +141,7 @@ class ViewController: UIViewController {
     func createEditableCopyOfDatabaseIfNeeded() {
         let databasePath = getWritableDBPath()
         
-    let fileManager = NSFileManager()
+        let fileManager = NSFileManager()
         if (fileManager.fileExistsAtPath(databasePath)) {
             return
         } else {
@@ -155,11 +158,27 @@ class ViewController: UIViewController {
             }
             
             if (!success){
-               print("Could not copy database from " + defaultDBPath! + " to " + databasePath)
-               print(error?.description)
-               exit(Int32(error!.code))
+                print("Could not copy database from " + defaultDBPath! + " to " + databasePath)
+                print(error?.description)
+                exit(Int32(error!.code))
             }
         }
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
