@@ -696,7 +696,6 @@
 		01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105B1B568EA4000A695F /* DetailViewController.swift */; };
 		01DA105E1B56A076000A695F /* SavedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105D1B56A076000A695F /* SavedEntry.swift */; };
 		01DA10601B57D7B0000A695F /* NumberplateCodesManager.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */; };
-		01DA10691B57ECD6000A695F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA10681B57ECD6000A695F /* libsqlite3.0.dylib */; };
 		B434AAAA4A8F431C82E53108 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 742DD519CCF3B472E6C47142 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -711,7 +710,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		019600751B7CA1B900AA801C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		01AD85471B8CB98F00FFD09C /* api_key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = api_key; path = "Kfz-Kennzeichen/api_key"; sourceTree = "<group>"; };
 		01AD854A1B8DBA0400FFD09C /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
 		01AD854B1B8DBA0400FFD09C /* aa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aa.png; sourceTree = "<group>"; };
@@ -1405,7 +1403,6 @@
 		01DA105B1B568EA4000A695F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01DA105D1B56A076000A695F /* SavedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEntry.swift; sourceTree = "<group>"; };
 		01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = NumberplateCodesManager.sqlite; path = "Kfz-Kennzeichen/NumberplateCodesManager.sqlite"; sourceTree = "<group>"; };
-		01DA10681B57ECD6000A695F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		64C23812EAB3E952B706B121 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		742DD519CCF3B472E6C47142 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B73BC078EBB96016F98B4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1416,7 +1413,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01DA10691B57ECD6000A695F /* libsqlite3.0.dylib in Frameworks */,
 				B434AAAA4A8F431C82E53108 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2121,8 +2117,6 @@
 			isa = PBXGroup;
 			children = (
 				01AD85471B8CB98F00FFD09C /* api_key */,
-				019600751B7CA1B900AA801C /* libsqlite3.dylib */,
-				01DA10681B57ECD6000A695F /* libsqlite3.0.dylib */,
 				01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */,
 				01DA10381B56757F000A695F /* Kfz-Kennzeichen */,
 				01DA104E1B56757F000A695F /* Kfz-KennzeichenTests */,
