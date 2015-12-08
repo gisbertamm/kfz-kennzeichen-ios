@@ -37,11 +37,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         CodeInput.delegate = self
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // add car symbol to UI
         carSymbol.text = "\u{1f697}"
         carSymbol.font = carSymbol.font.fontWithSize(96)
         carSymbol.textAlignment = .Center
         
+        // add oberservers for keyboard changes
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
     }
