@@ -132,7 +132,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // there are only images for letter codes
         } else {
             let imagePath = NSBundle.mainBundle().pathForResource(savedEntry!.code.lowercaseString, ofType: "png")
-            crestImage.image = UIImage(contentsOfFile: imagePath!)
+            if (imagePath != nil) {
+                crestImage.image = UIImage(contentsOfFile: imagePath!)
+            } else {
+                print("No crest image found for code " + savedEntry!.code)
+            }
         }
     }
 
