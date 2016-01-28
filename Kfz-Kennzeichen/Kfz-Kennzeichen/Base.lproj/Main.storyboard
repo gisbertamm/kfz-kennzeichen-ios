@@ -153,7 +153,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="514" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -182,18 +182,12 @@
                             <constraint firstItem="Qep-wx-fjp" firstAttribute="top" secondItem="pRn-gt-D0W" secondAttribute="top" id="YFO-h9-o4W"/>
                             <constraint firstItem="i3r-nz-P2j" firstAttribute="leading" secondItem="jgd-Ja-l7b" secondAttribute="leading" id="YO1-Cf-fvX"/>
                             <constraint firstItem="pRn-gt-D0W" firstAttribute="top" secondItem="7bS-tq-8e0" secondAttribute="bottom" constant="8" symbolic="YES" id="aMa-mc-bpk"/>
-                            <constraint firstItem="Fq7-IY-M48" firstAttribute="leading" secondItem="0jV-ez-wX9" secondAttribute="leading" id="fWM-Vh-SZ9"/>
                             <constraint firstItem="i3r-nz-P2j" firstAttribute="trailing" secondItem="3jR-Dx-MUe" secondAttribute="trailing" id="g1X-jC-ror"/>
                             <constraint firstItem="PWV-6a-7Hd" firstAttribute="top" secondItem="i3r-nz-P2j" secondAttribute="bottom" constant="8" symbolic="YES" id="qCm-nZ-CtU"/>
                             <constraint firstItem="0jV-ez-wX9" firstAttribute="leading" secondItem="PWV-6a-7Hd" secondAttribute="leading" id="sWl-ng-1qT"/>
                             <constraint firstItem="PWV-6a-7Hd" firstAttribute="leading" secondItem="i3r-nz-P2j" secondAttribute="leading" id="u1p-nT-vD3"/>
                             <constraint firstItem="3jR-Dx-MUe" firstAttribute="trailing" secondItem="Qep-wx-fjp" secondAttribute="trailing" id="vmt-1n-bCy"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="fWM-Vh-SZ9"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="code" destination="pRn-gt-D0W" id="AeE-Jg-Mqc"/>
