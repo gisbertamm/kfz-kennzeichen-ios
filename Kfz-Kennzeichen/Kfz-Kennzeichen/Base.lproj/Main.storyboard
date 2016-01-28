@@ -142,7 +142,7 @@
                                 <rect key="frame" x="28" y="368" width="544" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="z2c-Ij-mu8" style="IBUITableViewCellStyleDefault" id="wee-5f-Anp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="jokeCell" textLabel="z2c-Ij-mu8" style="IBUITableViewCellStyleDefault" id="wee-5f-Anp">
                                         <rect key="frame" x="0.0" y="28" width="544" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wee-5f-Anp" id="8NK-ko-NDP">

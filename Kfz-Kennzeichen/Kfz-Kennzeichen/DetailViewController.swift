@@ -121,7 +121,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "jokeCell")
         
         // Do any additional setup after loading the view.
         code.text = savedEntry!.code
@@ -164,7 +164,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell)
+        let cell:UITableViewCell = (self.tableView.dequeueReusableCellWithIdentifier("jokeCell")! as UITableViewCell)
         
         cell.textLabel?.text = savedEntry?.jokes[indexPath.row]
         
