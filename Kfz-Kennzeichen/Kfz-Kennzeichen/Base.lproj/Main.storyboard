@@ -127,7 +127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fq7-IY-M48">
-                                <rect key="frame" x="202" y="504" width="196" height="30"/>
+                                <rect key="frame" x="202" y="376" width="196" height="30"/>
                                 <state key="normal" title="Eigenen Spruch vorschlagen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -139,8 +139,11 @@
                                 <rect key="frame" x="500" y="72" width="72" height="70"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="272" placeholderIntrinsicHeight="128" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0jV-ez-wX9">
-                                <rect key="frame" x="28" y="368" width="544" height="128"/>
+                                <rect key="frame" x="28" y="368" width="544" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="P0u-kv-8jj"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="jokeCell" textLabel="z2c-Ij-mu8" style="IBUITableViewCellStyleDefault" id="wee-5f-Anp">
                                         <rect key="frame" x="0.0" y="28" width="544" height="44"/>
@@ -194,6 +197,7 @@
                         <outlet property="crestImage" destination="Qep-wx-fjp" id="dyB-8D-Vr7"/>
                         <outlet property="district" destination="3jR-Dx-MUe" id="O2p-mZ-xSj"/>
                         <outlet property="districtCenter" destination="i3r-nz-P2j" id="4J4-nS-byg"/>
+                        <outlet property="dynamicTVHeight" destination="P0u-kv-8jj" id="ahV-y6-Cci"/>
                         <outlet property="tableView" destination="0jV-ez-wX9" id="uCm-jg-Gsa"/>
                         <outlet property="view" destination="0jV-ez-wX9" id="TE1-c0-Tuw"/>
                     </connections>

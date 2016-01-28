@@ -21,6 +21,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var dynamicTVHeight: NSLayoutConstraint!
+    
     @IBAction func proposeJoke(sender: UIButton) {
         let proposeAlert = UIAlertController(title: "Eigenen Spruch vorschlagen", message: "Bitte Text eingeben (maximal " + String(self.maxLengthOfProposal) + " Zeichen).", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -139,6 +141,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("No crest image found for code " + savedEntry!.code)
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let height: CGFloat = min(self.view.bounds.size.height, self.tableView.contentSize.height)
+        self.dynamicTVHeight.constant = height;
+        self.view.layoutIfNeeded();
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
     }
 
     func isNumbersOnly(input: String) -> Bool {
