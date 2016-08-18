@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             if (segue!.identifier! == "showDetail") {
                 
-                let row = Array(db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
+                let row = Array(try db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
                 
                 if (row.isEmpty) {
                     // nothing found
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 // empty input field
                 CodeInput.text = ""
                 
-                for row in db.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") {
+                for row in try db.prepare("SELECT * FROM numberplate_codes ORDER BY RANDOM() LIMIT 1") {
                     savedEntry.code = row[1] as! String
                     savedEntry.district = row[2] as! String
                     savedEntry.district_center = row[3] as! String
@@ -128,7 +128,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func addJokes(db:Connection, jokes: Table, savedEntry: SavedEntry) {
         let jokesColumn = Expression<String>("jokes")
         
-        for jokeRow in db.prepare(jokes.select(jokesColumn).filter(codeColumn == savedEntry.code))
+
+        let jokeRows = try! db.prepare(jokes.select(jokesColumn).filter(codeColumn == savedEntry.code))
+
+        
+        for jokeRow in jokeRows
         {
             savedEntry.jokes.append(jokeRow[jokesColumn])
         }
