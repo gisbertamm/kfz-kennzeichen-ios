@@ -696,7 +696,8 @@
 		01DA105C1B568EA4000A695F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105B1B568EA4000A695F /* DetailViewController.swift */; };
 		01DA105E1B56A076000A695F /* SavedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA105D1B56A076000A695F /* SavedEntry.swift */; };
 		01DA10601B57D7B0000A695F /* NumberplateCodesManager.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */; };
-		B434AAAA4A8F431C82E53108 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 742DD519CCF3B472E6C47142 /* Pods.framework */; };
+		05EC5B125BAAA2272F4425B7 /* Pods_Kfz_Kennzeichen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF951072D1F4AB14048A45CE /* Pods_Kfz_Kennzeichen.framework */; };
+		CD698C8CBDABDAB10296E44C /* Pods_Kfz_KennzeichenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D603BA5EDDE602BC17A4265 /* Pods_Kfz_KennzeichenTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1403,9 +1404,13 @@
 		01DA105B1B568EA4000A695F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01DA105D1B56A076000A695F /* SavedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEntry.swift; sourceTree = "<group>"; };
 		01DA105F1B57D7B0000A695F /* NumberplateCodesManager.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = NumberplateCodesManager.sqlite; path = "Kfz-Kennzeichen/NumberplateCodesManager.sqlite"; sourceTree = "<group>"; };
-		64C23812EAB3E952B706B121 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2FD6563D1BAB82431C6F786B /* Pods-Kfz-KennzeichenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kfz-KennzeichenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kfz-KennzeichenTests/Pods-Kfz-KennzeichenTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D1BC32C5F8AB4D8330C4800 /* Pods-Kfz-KennzeichenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kfz-KennzeichenTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kfz-KennzeichenTests/Pods-Kfz-KennzeichenTests.release.xcconfig"; sourceTree = "<group>"; };
 		742DD519CCF3B472E6C47142 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88B73BC078EBB96016F98B4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8D603BA5EDDE602BC17A4265 /* Pods_Kfz_KennzeichenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kfz_KennzeichenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF951072D1F4AB14048A45CE /* Pods_Kfz_Kennzeichen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kfz_Kennzeichen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8EEBDCEA3B94EA7B23543D /* Pods-Kfz-Kennzeichen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kfz-Kennzeichen.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kfz-Kennzeichen/Pods-Kfz-Kennzeichen.release.xcconfig"; sourceTree = "<group>"; };
+		E155AFD81CDFAE432568CB36 /* Pods-Kfz-Kennzeichen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kfz-Kennzeichen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kfz-Kennzeichen/Pods-Kfz-Kennzeichen.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1413,7 +1418,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B434AAAA4A8F431C82E53108 /* Pods.framework in Frameworks */,
+				05EC5B125BAAA2272F4425B7 /* Pods_Kfz_Kennzeichen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1426,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD698C8CBDABDAB10296E44C /* Pods_Kfz_KennzeichenTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2121,8 +2127,8 @@
 				01DA10381B56757F000A695F /* Kfz-Kennzeichen */,
 				01DA104E1B56757F000A695F /* Kfz-KennzeichenTests */,
 				01DA10371B56757F000A695F /* Products */,
-				4AF1D7AA8ED006D82512DACC /* Pods */,
 				CF9C8B2F26F2B208E004208C /* Frameworks */,
+				6B25915F776E89DFFDA1B6BA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2176,11 +2182,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4AF1D7AA8ED006D82512DACC /* Pods */ = {
+		6B25915F776E89DFFDA1B6BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				64C23812EAB3E952B706B121 /* Pods.debug.xcconfig */,
-				88B73BC078EBB96016F98B4C /* Pods.release.xcconfig */,
+				E155AFD81CDFAE432568CB36 /* Pods-Kfz-Kennzeichen.debug.xcconfig */,
+				DC8EEBDCEA3B94EA7B23543D /* Pods-Kfz-Kennzeichen.release.xcconfig */,
+				2FD6563D1BAB82431C6F786B /* Pods-Kfz-KennzeichenTests.debug.xcconfig */,
+				3D1BC32C5F8AB4D8330C4800 /* Pods-Kfz-KennzeichenTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2189,6 +2197,8 @@
 			isa = PBXGroup;
 			children = (
 				742DD519CCF3B472E6C47142 /* Pods.framework */,
+				CF951072D1F4AB14048A45CE /* Pods_Kfz_Kennzeichen.framework */,
+				8D603BA5EDDE602BC17A4265 /* Pods_Kfz_KennzeichenTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2200,12 +2210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01DA10551B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-Kennzeichen" */;
 			buildPhases = (
-				79495C239D7EFB3702A6561A /* Check Pods Manifest.lock */,
+				FD6F7DB447437E6119B73C95 /* [CP] Check Pods Manifest.lock */,
 				01DA10321B56757F000A695F /* Sources */,
 				01DA10331B56757F000A695F /* Frameworks */,
 				01DA10341B56757F000A695F /* Resources */,
-				7B9831B2AA7D0CD14D980B8E /* Embed Pods Frameworks */,
-				B720CC01FC197A4FD71E08BC /* Copy Pods Resources */,
+				7C73816E9D365BDE7B26547A /* [CP] Embed Pods Frameworks */,
+				4234A9C90386E05715DFB11A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2220,9 +2230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01DA10581B56757F000A695F /* Build configuration list for PBXNativeTarget "Kfz-KennzeichenTests" */;
 			buildPhases = (
+				8B79FE3BE1BC0E25C49DB98E /* [CP] Check Pods Manifest.lock */,
 				01DA10471B56757F000A695F /* Sources */,
 				01DA10481B56757F000A695F /* Frameworks */,
 				01DA10491B56757F000A695F /* Resources */,
+				A854F988CEE1715DD9B59545 /* [CP] Embed Pods Frameworks */,
+				BF79D00EAE2F5CBDA5F5C258 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2242,14 +2255,16 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Gisbert Amm";
 				TargetAttributes = {
 					01DA10351B56757F000A695F = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0830;
 					};
 					01DA104A1B56757F000A695F = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0830;
 						TestTargetID = 01DA10351B56757F000A695F;
 					};
 				};
@@ -2975,49 +2990,103 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		79495C239D7EFB3702A6561A /* Check Pods Manifest.lock */ = {
+		4234A9C90386E05715DFB11A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kfz-Kennzeichen/Pods-Kfz-Kennzeichen-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B9831B2AA7D0CD14D980B8E /* Embed Pods Frameworks */ = {
+		7C73816E9D365BDE7B26547A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Kfz-Kennzeichen/Pods-Kfz-Kennzeichen-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kfz-Kennzeichen/Pods-Kfz-Kennzeichen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B720CC01FC197A4FD71E08BC /* Copy Pods Resources */ = {
+		8B79FE3BE1BC0E25C49DB98E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kfz-KennzeichenTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A854F988CEE1715DD9B59545 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kfz-KennzeichenTests/Pods-Kfz-KennzeichenTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF79D00EAE2F5CBDA5F5C258 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kfz-KennzeichenTests/Pods-Kfz-KennzeichenTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD6F7DB447437E6119B73C95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kfz-Kennzeichen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3085,8 +3154,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3095,6 +3166,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -3107,7 +3179,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -3128,8 +3200,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3137,45 +3211,52 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		01DA10561B56757F000A695F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64C23812EAB3E952B706B121 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E155AFD81CDFAE432568CB36 /* Pods-Kfz-Kennzeichen.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Kfz-Kennzeichen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.gisbert-amm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		01DA10571B56757F000A695F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88B73BC078EBB96016F98B4C /* Pods.release.xcconfig */;
+			baseConfigurationReference = DC8EEBDCEA3B94EA7B23543D /* Pods-Kfz-Kennzeichen.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Kfz-Kennzeichen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.gisbert-amm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		01DA10591B56757F000A695F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FD6563D1BAB82431C6F786B /* Pods-Kfz-KennzeichenTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3190,12 +3271,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.gisbert-amm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kfz-Kennzeichen.app/Kfz-Kennzeichen";
 			};
 			name = Debug;
 		};
 		01DA105A1B56757F000A695F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D1BC32C5F8AB4D8330C4800 /* Pods-Kfz-KennzeichenTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3206,6 +3289,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.gisbert-amm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kfz-Kennzeichen.app/Kfz-Kennzeichen";
 			};
 			name = Release;

@@ -17,11 +17,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var RandomButton: UIButton!
     @IBOutlet weak var baseConstraint: NSLayoutConstraint!
     
-    @IBAction func SearchAction(sender: UIButton) {
+    @IBAction func SearchAction(_ sender: UIButton) {
     }
     
     
-    @IBAction func RandomAction(sender: UIButton) {
+    @IBAction func RandomAction(_ sender: UIButton) {
     }
     
     let databaseName = "NumberplateCodesManager.sqlite"
@@ -39,12 +39,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // add car symbol to UI
         carSymbol.text = "\u{1f697}"
-        carSymbol.font = carSymbol.font.fontWithSize(96)
-        carSymbol.textAlignment = .Center
+        carSymbol.font = carSymbol.font.withSize(96)
+        carSymbol.textAlignment = .center
         
         // add oberservers for keyboard changes
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue?, sender: Any?) {
         let savedEntry = SavedEntry()
         
         createEditableCopyOfDatabaseIfNeeded()
@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             if (segue!.identifier! == "showDetail") {
                 
-                let row = Array(try db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercaseString)))
+                let row = Array(try db.prepare(numberplate_codes.select(idColumn, codeColumn, districtColumn, district_centerColumn, stateColumn, district_wikipedia_urlColumn).filter(codeColumn == CodeInput.text!.uppercased())))
                 
                 if (row.isEmpty) {
                     // nothing found
@@ -100,15 +100,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             addJokes(db, jokes: jokes, savedEntry: savedEntry)
             
             if savedEntry.code.isEmpty {
-                let emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.Alert)
-                emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .Default, handler: { (action: UIAlertAction) in
+                let emptyEntryAlert = UIAlertController(title: "Unbekannt", message: "Dieses Kennzeichen gibt es nicht.", preferredStyle: UIAlertControllerStyle.alert)
+                emptyEntryAlert.addAction(UIAlertAction(title: "Zurück", style: .default, handler: { (action: UIAlertAction) in
                     print("Unknown code or empty search.")
                     // do nothing
                 }))
-                self.presentViewController(emptyEntryAlert, animated: true, completion: nil)
+                self.present(emptyEntryAlert, animated: true, completion: nil)
             } else {
                 // display data
-                let detailViewControler: DetailViewController = segue!.destinationViewController as! DetailViewController
+                let detailViewControler: DetailViewController = segue!.destination as! DetailViewController
                 detailViewControler.savedEntry = savedEntry
             }
         } catch {
@@ -116,7 +116,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func mapData(row: Row, savedEntry: SavedEntry) {
+    func mapData(_ row: Row, savedEntry: SavedEntry) {
         //savedEntry.id = row[idColumn]
         savedEntry.code = row[codeColumn]
         savedEntry.district = row[districtColumn]
@@ -125,7 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         savedEntry.district_wikipedia_url = row[district_wikipedia_urlColumn]
     }
     
-    func addJokes(db:Connection, jokes: Table, savedEntry: SavedEntry) {
+    func addJokes(_ db:Connection, jokes: Table, savedEntry: SavedEntry) {
         let jokesColumn = Expression<String>("jokes")
         
 
@@ -140,8 +140,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getWritableDBPath() -> String {
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] as String
         return docsDir + "/" + databaseName
@@ -150,16 +150,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func createEditableCopyOfDatabaseIfNeeded() {
         let databasePath = getWritableDBPath()
         
-        let fileManager = NSFileManager()
-        if (fileManager.fileExistsAtPath(databasePath)) {
+        let fileManager = FileManager()
+        if (fileManager.fileExists(atPath: databasePath)) {
             return
         } else {
             // copy the database to the appropriate location
-            let defaultDBPath = NSBundle.mainBundle().pathForResource(databaseName, ofType: nil)
+            let defaultDBPath = Bundle.main.path(forResource: databaseName, ofType: nil)
             var error:NSError?
             var success: Bool
             do {
-                try fileManager.copyItemAtPath(defaultDBPath!, toPath: databasePath)
+                try fileManager.copyItem(atPath: defaultDBPath!, toPath: databasePath)
                 success = true
             } catch let error1 as NSError {
                 error = error1
@@ -177,7 +177,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /**
      * Called when 'return' key pressed. return NO to ignore.
      */
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -186,33 +186,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /**
      * Called when the user click on the view (outside the UITextField).
      */
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
-    func keyboardWillShow(sender: NSNotification) {
+    func keyboardWillShow(_ sender: Notification) {
         animateTextFieldWithKeyboard(sender)
     }
     
-    func keyboardWillHide(sender: NSNotification) {
+    func keyboardWillHide(_ sender: Notification) {
         animateTextFieldWithKeyboard(sender)
     }
     
     // move all controls up when the keyboard appers
     // followed some advices from http://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift
     // TODO consider orientation changes etc. - see http://macoscope.com/blog/working-with-keyboard-on-ios/
-    func animateTextFieldWithKeyboard(notification: NSNotification) {
+    func animateTextFieldWithKeyboard(_ notification: Notification) {
         
         let userInfo = notification.userInfo!
         
-        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
         let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! UInt
         
         // baseContraint is your Auto Layout constraint that pins the
         // text view to the bottom of the superview.
         
-        if notification.name == UIKeyboardWillShowNotification {
+        if notification.name == NSNotification.Name.UIKeyboardWillShow {
             baseConstraint.constant = +keyboardSize.height  // move up
         }
         else {
@@ -222,7 +222,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.setNeedsUpdateConstraints()
         
         let options = UIViewAnimationOptions(rawValue: UInt(curve << 16))
-        UIView.animateWithDuration(duration, delay: 0, options: options,
+        UIView.animate(withDuration: duration, delay: 0, options: options,
             animations: {
                 self.view.layoutIfNeeded()
             },

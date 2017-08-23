@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-Kfz-Kennzeichen.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Kfz-KennzeichenTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>451239328D1CCF734C80F04C9A2774BA</key>
+		<key>1766B193C7AE85732B18B68A3E757B86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F47EF93570A7B95B56C05711A7BD8B8E</key>
+		<key>8346DA982211ED900FE5C4EC477FCC7D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1CC4F45B80413FF428A495DEFF68972</key>
 		<dict>
 			<key>primary</key>
 			<true/>
